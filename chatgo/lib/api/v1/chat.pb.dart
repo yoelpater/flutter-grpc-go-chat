@@ -5,13 +5,9 @@
 // @dart = 2.12
 // ignore_for_file: annotate_overrides,camel_case_types,constant_identifier_names,directives_ordering,library_prefixes,non_constant_identifier_names,prefer_final_fields,return_of_invalid_type,unnecessary_const,unnecessary_import,unnecessary_this,unused_import,unused_shown_name
 
-import 'dart:async' as $async;
 import 'dart:core' as $core;
 
 import 'package:protobuf/protobuf.dart' as $pb;
-
-import 'google/protobuf/wrappers.pb.dart' as $0;
-import 'google/protobuf/empty.pb.dart' as $1;
 
 class Message extends $pb.GeneratedMessage {
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'Message', package: const $pb.PackageName(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'v1'), createEmptyInstance: create)
@@ -58,19 +54,5 @@ class Message extends $pb.GeneratedMessage {
   $core.bool hasText() => $_has(0);
   @$pb.TagNumber(1)
   void clearText() => clearField(1);
-}
-
-class ChatServiceApi {
-  $pb.RpcClient _client;
-  ChatServiceApi(this._client);
-
-  $async.Future<$1.Empty> send($pb.ClientContext? ctx, $0.StringValue request) {
-    var emptyResponse = $1.Empty();
-    return _client.invoke<$1.Empty>(ctx, 'ChatService', 'Send', request, emptyResponse);
-  }
-  $async.Future<Message> subscribe($pb.ClientContext? ctx, $1.Empty request) {
-    var emptyResponse = Message();
-    return _client.invoke<Message>(ctx, 'ChatService', 'Subscribe', request, emptyResponse);
-  }
 }
 
